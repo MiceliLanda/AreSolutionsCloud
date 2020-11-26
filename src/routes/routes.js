@@ -3,27 +3,30 @@ const router = Router();
 const multer = require('multer');
 var path = require('path');
 
-app.set('view_engine','ejs');
-app.set('views',path.join(__dirname,'../views'));
+app.set('view_engine', 'ejs');
+app.set('views', path.join(__dirname, '../views'));
 
-var storage = multer.diskStorage({ destination : (req, file , callback ) => {
-        callback(null, './archivos') 
+var storage = multer.diskStorage({
+    destination: (req, file, callback) => {
+        callback(null, './archivos')
     },
-        filename : (req , file, callback) => {
+    filename: (req, file, callback) => {
         callback(null, file.originalname)
     }
 });
 
-var upload = multer({dest: storage});
+var upload = multer({ dest: storage });
 
-router.get('/',(req , res) => {
-   res.render('viewSubir');
-   //res.send('hola');
+
+//Tengo error de que no lee los archivos EJS, ya esta configurado el motor de plantillas y ni asi.
+router.get('/', (req, res) => {
+    res.render('viewSubir');
+    //res.send('hola');
 });
 
-router.post('/subirArchivo', upload.single,(req,res) => {
-   console.log(req.file);
-   res.send('Archive upload succesfully!');
+router.post('/subirArchivo', upload.single, (req, res) => {
+    console.log(req.file);
+    res.send('Archive upload succesfully!');
 });
 
 module.exports = router;
