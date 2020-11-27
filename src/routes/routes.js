@@ -17,4 +17,4 @@ router.post('/subirArchivo', multer({
     });
 });
 
-module.exports = router, app;
+module.exports = router;
