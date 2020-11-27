@@ -1,6 +1,5 @@
-const { Router } = require('express'), express = require('express'), app = express();
+const { Router } = require('express');
 const router = Router();
-const e = require('express');
 const multer = require('multer');
 var path = require('path');
 const fs = require('fs');
@@ -17,4 +16,4 @@ router.post('/subirArchivo', multer({
     });
 });
 
-module.exports = router;
+module.exports = router;   
