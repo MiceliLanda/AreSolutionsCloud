@@ -3,11 +3,14 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 
-
 //configuraciones
 app.set('port',3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname,'/public/Style')));
+
+console.log(path.join(__dirname, 'public/Style'));
+//path.join(__dirname, 'public/Style'));
 
 //middleware
 app.use(express.json());

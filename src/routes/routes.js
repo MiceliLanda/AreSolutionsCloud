@@ -9,6 +9,8 @@ router.get('/', (req, res) => {
     res.render('viewSubir');
 });
 
+
+
 router.post('/subirArchivo', multer({ dest: path.join(__dirname, '../public/uploads'), }).single('subida'), (req, res, next) => {
         
         fs.rename(req.file.path, `./src/public/uploads/${req.file.originalname}`, () => {
