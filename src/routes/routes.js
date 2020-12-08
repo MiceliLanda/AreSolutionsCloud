@@ -18,6 +18,7 @@ const subida = multer({storage});
 
 router.get('/', async (req, res) => { 
     const datos = await Datos.find()
+    console.log(datos);
     res.render('viewSubir',{ datos});
 });
 
@@ -26,12 +27,12 @@ router.post('/subirArchivo',subida.single('subida'),(req , res) => {
         console.log(req.file);
         let datos = new Datos()
         datos.nombre = req.file.originalname;
-        datos.path = req.file.path;
+        datos.path = '/uploads/'+req.file.filename;
         datos.save((err, subirarchivo) => {
             if(err) {
                 res.status(500).send(`Error al guardar los datos: ${err}`)
             }
-            res.status(200).send('recibido')//{datos: subirarchivo})
+            res.status(200).redirect('/');
         });
 
 });

@@ -12,10 +12,10 @@
         <button type="submit" class="form_button">Submit</button>
     </form>
     
-    <div class="container">
+    <div class="div">
         <% datos.forEach(function(datos){ %>
-            <div class="container">
-                <img src="<%= datos.path %>" alt="">
+            <div class="div_img">
+                <img src="<%= datos.path %>" alt="" class="img">
             </div>
         <% }) %>    
     </div>
