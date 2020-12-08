@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Upload files</title>
+    <title>Subir Archivos</title>
 </head>
 <body class="body">
+
     <form action="/subirArchivo" method="POST" enctype="multipart/form-data" class="form">
         <input type="file" name="subida" class="form_input">
         <button type="submit" class="form_button">Submit</button>
@@ -18,6 +19,7 @@
                 <img src="<%= datos.path %>" alt="" class="img">
             </div>
         <% }) %>    
+
     </div>
 </body>
 </html>

@@ -37,9 +37,4 @@ router.post('/subirArchivo',subida.single('subida'),(req , res) => {
 
 });
 
-router.get('/login', (req, res ) => {
-    //res.render('login');
-    res.send('HOla login')
-});
-
 module.exports = router;   
