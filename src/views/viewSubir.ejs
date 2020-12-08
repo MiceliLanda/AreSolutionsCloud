@@ -9,10 +9,15 @@
 <body class="body">
     <div class="div">
         <form action="/subirArchivo" method="POST" enctype="multipart/form-data" class="form">
-            <input type="file" name="subida" class="form_input">
+            <input type="file" name="subida" class="form_input" id="files" name="files[]" multiple>
             <button type="submit" class="form_button">Subir Archivo</button>
-        </form>
-        <div>
+        </form
+        <div class="div_imagenes">
+            <% for(var i=0;i<people.length;i++) { %>
+                <div class="div_div_imagenes">
+                    <li><%= people[i].name %></li>
+                </div>
+            <% } %>
         </div>
     </div>
 </body>

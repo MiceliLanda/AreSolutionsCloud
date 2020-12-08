@@ -5,14 +5,28 @@ var path = require('path');
 const fs = require('fs');
 const Datos = require('../models/test')
 
+//Inicio
 router.get('/', (req, res) => { 
     res.render('login');
 });
 
-router.get('/subirArchivo', (req, res) => { 
+router.post('/',(req,res) =>{
+    //console.log(req.newPassword);
+})
+
+//SubirArchivo
+router.get('/subirArchivo',(req, res) => {
+    //const arrayImg = imagenes.find();
+    //console.log(arrayImg);
     const data = [{name: 'Eduardo'}, {name: 'Carlos'}, {name: 'Cesar'}];
-    res.render('viewSubir',{people: data,print:'hola mundo'});
+    res.render('viewSubir',{people: data});
 });
+
+router.post('/subirArchivo',(req,res) =>{
+    function handleFileSelect(evt) {
+        var files = evt.target.file
+    } 
+})
 
 router.post('/subirArchivo', multer({ dest: path.join(__dirname, '../public/uploads'), }).single('subida'), (req, res, next) => {
         

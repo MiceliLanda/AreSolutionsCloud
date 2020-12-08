@@ -8,14 +8,16 @@ app.set('port',3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname,'/public/Style')));
+app.use(express.static(path.join(__dirname,'/public/uploads')));
 
-console.log(path.join(__dirname, 'public/Style'));
+//console.log(path.join(__dirname, 'public/Style'));
 //path.join(__dirname, 'public/Style'));
 
 //middleware
 app.use(express.json());
 
 app.use(require('./routes/routes'));
+
 
 /*mongoose.connect('mongodb://localhost:27017/test',(err , res) => {
     if(err){
