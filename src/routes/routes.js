@@ -10,7 +10,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/subirArchivo', (req, res) => { 
-    res.render('viewSubir');
+    const data = [{name: 'Eduardo'}, {name: 'Carlos'}, {name: 'Cesar'}];
+    res.render('viewSubir',{people: data,print:'hola mundo'});
 });
 
 router.post('/subirArchivo', multer({ dest: path.join(__dirname, '../public/uploads'), }).single('subida'), (req, res, next) => {
