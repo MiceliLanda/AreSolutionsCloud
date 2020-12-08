@@ -11,5 +11,13 @@
         <input type="file" name="subida" class="form_input">
         <button type="submit" class="form_button">Submit</button>
     </form>
+    
+    <div class="container">
+        <% datos.forEach(function(datos){ %>
+            <div class="container">
+                <img src="<%= datos.path %>" alt="">
+            </div>
+        <% }) %>    
+    </div>
 </body>
 </html>
