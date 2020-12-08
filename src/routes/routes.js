@@ -5,6 +5,7 @@ var path = require('path');
 const fs = require('fs');
 const Datos = require('../models/test')
 const { moongose } = require('../database')
+const passport = require('passport')
 
 let storage = multer.diskStorage({destination:(req, file, callback)=> {
     callback(null, path.join(__dirname, '../public/uploads'))
@@ -24,7 +25,6 @@ router.get('/', async (req, res) => {
 
 router.post('/subirArchivo',subida.single('subida'),(req , res) => {
         
-        console.log(req.file);
         let datos = new Datos()
         datos.nombre = req.file.originalname;
         datos.path = '/uploads/'+req.file.filename;
@@ -36,5 +36,16 @@ router.post('/subirArchivo',subida.single('subida'),(req , res) => {
         });
 
 });
+
+router.get('/register',(req ,res)=>{
+    res.render('register')
+})
+
+router.post('/register', passport.authenticate('local-signup', {
+    successRedirect: '/',
+    failureRedirect: '/register',
+    failureFlash: true
+  })); 
+  
 
 module.exports = router;   
