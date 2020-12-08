@@ -12,7 +12,7 @@ passport.deserializeUser(async (id, done) => {
   done(null, user);
 });
 
-passport.use('local-signup', new LocalStrategy({
+passport.use('register', new LocalStrategy({
   usernameField: 'username',
   passwordField: 'password',
   passReqToCallback: true
@@ -25,7 +25,7 @@ passport.use('local-signup', new LocalStrategy({
     const newUser = new Usuario();
     newUser.username = username;
     newUser.password = newUser.encryptPassword(password);
-  console.log(newUser)
+    console.log(newUser)
     await newUser.save();
     done(null, newUser);
   }
@@ -38,10 +38,10 @@ passport.use('login', new LocalStrategy({
 }, async (req, username, password, done) => {
   const user = await Usuario.findOne({username: username});
   if(!user) {
-    return done(null, false, req.flash('signinMessage', 'No User Found'));
+    return done(null, false, req.flash('loginMessage', 'No User Found'));
   }
   if(!user.comparePassword(password)) {
-    return done(null, false, req.flash('signinMessage', 'Incorrect Password'));
+    return done(null, false, req.flash('loginMessage', 'Incorrect Password'));
   }
   return done(null, user);
 }));

@@ -1,7 +1,27 @@
-<form action="/register" method="POST">
-  <input type="text" name="username" placeholder="Username">
-  <input type="password" name="password" placeholder="Password">
-  <button type="submit">
-    SignUp
-  </button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="loginStyle.css">
+</head>
+<body class="body_login">
+  <br><br><br><br><br><br><br><br><br>
+  <div class="contenedor">
+    <div class="div">
+      <%if (registerMessage) {%>
+        <p><%= registerMessage %></p>
+      <% } %>
+      <form action="/register" method="POST" class="form">
+          <h2>Registro de Usuario</h2>
+          <label for="">Usuario</label>
+          <input type="text" name="username" placeholder="Usuario">
+          <label for="">Contraseña</label>
+          <input type="password" name="password" placeholder="Contraseña">
+          <button type="submit" class="button">Registrar</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

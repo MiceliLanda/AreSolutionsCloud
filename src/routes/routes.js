@@ -5,7 +5,9 @@ var path = require('path');
 const fs = require('fs');
 const Datos = require('../models/test')
 const { moongose } = require('../database')
-const passport = require('passport')
+const passport = require('passport');
+const { Passport } = require('passport');
+
 
 let storage = multer.diskStorage({destination:(req, file, callback)=> {
     callback(null, path.join(__dirname, '../public/uploads'))
@@ -17,9 +19,9 @@ let storage = multer.diskStorage({destination:(req, file, callback)=> {
 
 const subida = multer({storage});
 
-router.get('/', async (req, res) => { 
+router.get('/home', async (req, res) => { 
     const datos = await Datos.find()
-    console.log(datos);
+    //console.log(datos);
     res.render('viewSubir',{ datos});
 });
 
@@ -41,11 +43,20 @@ router.get('/register',(req ,res)=>{
     res.render('register')
 })
 
-router.post('/register', passport.authenticate('local-signup', {
-    successRedirect: '/',
+router.post('/register', passport.authenticate('register', {
+    successRedirect: '/login',
     failureRedirect: '/register',
     failureFlash: true
   })); 
-  
+
+  router.get('/login',(req ,res)=>{
+      res.render('login')
+  })
+
+  router.post('/login', passport.authenticate('login',{
+    successRedirect: '/home',
+    failureRedirect: '/login',
+    failureFlash: true
+  }));
 
 module.exports = router;   
