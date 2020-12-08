@@ -6,6 +6,10 @@ const fs = require('fs');
 const Datos = require('../models/test')
 
 router.get('/', (req, res) => { 
+    res.render('login');
+});
+
+router.get('/subirArchivo', (req, res) => { 
     res.render('viewSubir');
 });
 
@@ -23,11 +27,6 @@ router.post('/subirArchivo', multer({ dest: path.join(__dirname, '../public/uplo
         });
     });
 
-});
-
-router.get('/login', (req, res ) => {
-    //res.render('login');
-    res.send('HOla login')
 });
 
 module.exports = router;   

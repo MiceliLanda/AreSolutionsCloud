@@ -1,36 +1,62 @@
-.body{
+.body_login{
     background: #0F2027;
     background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
     background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
-    text-align: center;    
+    text-align: center;
+}
+
+.contenedor{
+    display: flex;
+    justify-content: center;
 }
 
 .div{
+    float: left;
     margin: 10px 130px 20px;
     border: #4286f4 8px groove;
     background: #373B44;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    width: min-content;
 }
 
 .form{
-    padding: 20px;
-    color: aliceblue;
-}
-
-.form_input{
-    font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
 }
 
-.form_button{
-    font-size: 20px;
+.button{
     font-weight: bold;
+    margin: 20px;
     font-family: 'Courier New', Courier, monospace;
-    display: block;
-    margin-left: 50%;
-    transform: translateX(-50%);
+    font-size: 20px;
     background-color: #4286f4;
     border: #4286f4 8px groove;
     color: antiquewhite;
 }
+
+h1{
+    font-family: 'Courier New', Courier, monospace;
+    color: aliceblue;
+}
+
+h2{
+    font-family: 'Courier New', Courier, monospace;
+    color: aliceblue;
+    text-align: center;
+    word-wrap: normal;
+}
+
+label{
+    margin: 20px;
+    color: aliceblue;
+}
+
+input{
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    margin: 20px;
+}
+
